@@ -13,15 +13,16 @@
 		{% block stylesheets %}
 			<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"/>
 			{{ encore_entry_link_tags('app') }}
+			<link rel="stylesheet" href="{{asset('/css/app.css')}}">
+
 		{% endblock %}
 	</head>
 	<body>
-		<header>
-		{% include "includes/menu.html.twig" %}
-		<div class="bg-dark-300">
-		</div>
+		<header class="bg-dark-300 px-2 sm:px-4 xl:px-10">
+			{% include "includes/menu.html.twig" %}
+			{% include "includes/hero.html.twig" %}
+
 		</header>
-		
 		{% block body %}{% endblock %}
 	</body>
 

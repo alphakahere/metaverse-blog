@@ -9,10 +9,18 @@ module.exports = {
 				"dark-200": "#080a31",
 				"dark-300": "#070724",
 				"dark-400": "#030312",
+				"dark-500": "#0a0b1b",
 				"metablue-100": "#17c8f6",
 				"metablue-200": "#319df5",
 				"metablue-300": "#3f87f3",
 				"metablue-400": "#4d75f4",
+			},
+			fontFamily: {
+				gothic: ["Gothic A1", "ui-sans-serif"],
+				"gothic-league": ["League Gothic", "ui-sans-serif"],
+			},
+			spacing: {
+				1.5: "0.3rem",
 			},
 		},
 	},
