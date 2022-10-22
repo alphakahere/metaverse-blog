@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-    @apply bg-orange-200;
+.btn {
+    @apply text-white bg-gradient-to-r from-metablue-100  to-metablue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none
 }
-
