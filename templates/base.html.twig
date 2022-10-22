@@ -3,32 +3,27 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<title>
 			{% block title %}Metalic
 			{% endblock %}
 		</title>
-
-
 		{% block stylesheets %}
-			<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"/>
 			{{ encore_entry_link_tags('app') }}
 			<link rel="stylesheet" href="{{asset('/css/app.css')}}">
-
 		{% endblock %}
 	</head>
 	<body>
-		<header class="bg-dark-300 px-2 sm:px-4 xl:px-10">
+		<header class="bg-dark-300 container-app">
 			{% include "includes/menu.html.twig" %}
 			{% include "includes/hero.html.twig" %}
-
 		</header>
-		{% block body %}{% endblock %}
-	</body>
+		<main class="bg-dark-500 py-10 px-2 lg:px-10 xl:px-20"> {% block content %}{% endblock %}
+			</main>
+		</body>
 
 
-	{% block javascripts %}
-		<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-		{#{{ encore_entry_script_tags('app') }}#}
-	{% endblock %}
-</html></body></html>
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</html>
+</body></html>
