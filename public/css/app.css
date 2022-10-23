@@ -15,3 +15,7 @@
 .card-title {
 	font-family: 'League Gothic', Times, serif;
 }
+footer.footer {
+	background-color: #12121e;
+	/* #575661 */
+}
