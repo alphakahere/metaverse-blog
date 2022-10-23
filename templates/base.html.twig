@@ -14,7 +14,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 	</head>
 	<body>
-		{% include "layouts/header.html.twig" %}
+		<header class="bg-dark-300 container-app">
+			{% include "layouts/menu.html.twig" %}
+			{% block hero %}{% endblock %}
+		</header>
 		<main class="bg-dark-500 py-10 px-2 lg:px-10 xl:px-20"> {% block content %}{% endblock %}
 			</main>
 			{% include "layouts/footer.html.twig" %}
