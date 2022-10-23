@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap");
 
+
+*::-webkit-scrollbar {
+	width: 8px;
+}
+
+*{
+	scrollbar-width: 8px;
+	scrollbar-color: white #4d75f4;
+}
+
+
+*::-webkit-scrollbar-track {
+	background: white;
+	border-radius: 15px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #4d75f4;
+	border-radius: 15px;
+	border: 3px solid var(--primary);
+}
+
 .app-title {
 	font-size: clamp(20px, 30vw, 300px);
 	line-height: clamp(20px, 30vw, 250px);
@@ -8,7 +30,7 @@
 .btn-search {
 	right: 0;
 }
-.card-img {
+.card-img-wrapper  {
 	height: 300px;
 	max-height: 300px;
 }
