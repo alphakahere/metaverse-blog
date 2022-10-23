@@ -4,3 +4,19 @@
 homepage:
   path: /
   controller: App\Controller\BlogController::index
+
+add_article:
+  path: /add
+  controller: App\Controller\BlogController::add
+
+addedit_article:
+  path: /edit/{id}
+  controller: App\Controller\BlogController::edit
+  requirements: 
+    id: '\d+'
+
+remove_article:
+  path: /remove/{id}
+  controller: App\Controller\BlogController::remove
+  requirements: 
+    id: '\d+'

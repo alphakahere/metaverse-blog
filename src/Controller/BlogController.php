@@ -4,17 +4,29 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    /**
-     * @Route("/blog", name="app_blog")
-     */
     public function index(): Response
     {
-        return $this->render('blog/index.html.twig', [
-            'controller_name' => 'BlogController',
-        ]);
+        return $this->render('blog/index.html.twig');
+    }
+
+    // Add Article
+    public function add(): Response
+    {
+        return $this->render('blog/add.html.twig');
+    }
+
+     // edit Article
+     public function edit(): Response
+     {
+         return $this->render('blog/edit.html.twig');
+     }
+
+    //remove Article
+    public function remove(): Response
+    {
+        return new Response("Article supprime avec succes");
     }
 }
