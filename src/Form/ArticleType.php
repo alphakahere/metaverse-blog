@@ -18,11 +18,11 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('picture', FileType::class, [
-                'required' => false
+                'required' => false,
             ])
-            ->add('title', TextType::class)
+            ->add('title', TextType::class, ['required' => false])
             ->add('description', TextareaType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('content', TextareaType::class, [
                 'required' => false

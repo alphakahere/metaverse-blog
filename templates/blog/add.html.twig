@@ -10,6 +10,7 @@
 			<div class="w-full">
 				{{form_label(form.title,"Titre de l'article", {'label_attr': {'class': 'form-label'}})}}
 				{{form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article', 'class':'form-widget'}})}}
+				<span class="text-red-500">{{ form_errors(form.title) }}</span>
     </div>
        <div class="w-full">
 	{{form_label(form.categories,"Sélectionnez les catégories", {'label_attr': {'class': 'form-label block'}})}}
