@@ -4,15 +4,20 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends AbstractController
 {
-    public function index()
+    public function index(ArticleRepository $articleRepository)
     {
-        return $this->render('blog/index.html.twig');
+        $articles = $articleRepository->findAll();
+        dump($articles);
+        return $this->render('blog/index.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     // Add Article
@@ -92,7 +97,7 @@ class BlogController extends AbstractController
             $em->flush();
             return new Response('Article modifié avec succès.');
          }
-         
+
          return $this->render('blog/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView()

@@ -1,45 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Accueil |
-{{parent()}}
+	Accueil |
+	{{parent()}}
 
 
 {% endblock %}
 {% block hero %}
-{% include "layouts/hero.html.twig" %}
+	{% include "layouts/hero.html.twig" %}
 {% endblock %}
 {% block content %}
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-5">
-	{% for i in 0..9 %}
-		<div class="bg-gradient-to-r from-red-500 via-metablue-400 to-orange-500 mb-6 px-1 py-1 rounded-2xl">
-			<div class="bg-dark-200 rounded-2xl">
-				<div class="card-img-wrapper  overflow-hidden rounded-t-2xl  relative">
-				<a href="/">
-					<img src="https://picsum.photos/200{{i}}" alt="card-title" class="inset-0 h-full w-full object-cover  hover:scale-110 transition ease-in-out duration-300" loading="lazy">
-				</a>
-				</div>
-				<div class="p-5 rounded-b-2xl">
-					<ul class="flex space-x-2">
-						{# {% for i in 0..2 %} #}
-							<li class="text-steal uppercase text-sm font-semibold tracking-tight">symfony</li>
-							<li class="text-steal uppercase text-sm font-semibold tracking-tight">react</li>
-							<li class="text-steal uppercase text-sm font-semibold tracking-tight">php</li>
-						{# {% endfor %} #}
-					</ul>
-					<a href="/">
-					<h3 class="card-title text-white font-gothic tracking-wider text-xl lg:text-3xl font-normal leading-6 lg:leading-8  my-3">What is the metaverse and what we do there? since here</h3>
-					</a>
-					<div class="font-gothic text-gray-400 text-base ">
-						<p>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, magni ratione aperiam voluptate
-							pariatur fuga, alias a,labore commodi impedit sit voluptatum cumque quasi reprehenderit. 
-							<a href="" class="font-gothic text-white font-bold">Lire plus...</a>
-						</p>
+	<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-5">
+		{% for article in articles %}
+
+			<div class="bg-gradient-to-r from-red-500 via-metablue-400 to-orange-500 mb-6 px-1 py-1 rounded-2xl">
+				<div class="bg-dark-200 rounded-2xl">
+					<div class="card-img-wrapper  overflow-hidden rounded-t-2xl  relative">
+						<a href="/">
+							<img src="{{asset('uploads/' ~ article.picture)}}" alt="card-title" class="inset-0 h-full w-full object-cover  hover:scale-110 transition ease-in-out duration-300" loading="lazy">
+
+						</a>
+					</div>
+					<div class="p-5 rounded-b-2xl">
+						<ul class="flex space-x-2">
+							{% for category in article.categories %}
+								<li class="text-steal uppercase text-sm font-semibold tracking-tight">{{category.name}}</li>
+							{% endfor %}
+						</ul>
+						<a href="/">
+							<h3 class="card-title text-white font-gothic tracking-wider text-xl lg:text-3xl font-normal leading-6 lg:leading-8  my-3">{{article.title}}</h3>
+						</a>
+						<div class="font-gothic text-gray-400 text-base ">
+							<p>{{article.description}}</p>
+							<p>
+								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, magni ratione aperiam voluptate
+								pariatur fuga, alias a,labore commodi impedit sit voluptatum cumque quasi reprehenderit.
+								<a href="" class="font-gothic text-white font-bold">Lire plus...</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	{% endfor %}
-</div>
+		{% endfor %}
+	</div>
 {% endblock %}
