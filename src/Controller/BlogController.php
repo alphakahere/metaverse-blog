@@ -19,7 +19,11 @@ class BlogController extends AbstractController
             'articles' => $articles
         ]);
     }
-
+    public function show(Article $article){
+        return $this->render('blog/show.html.twig', [
+            'article' => $article
+        ]);
+    }
     // Add Article
     public function add(Request $request)
     {

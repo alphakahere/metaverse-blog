@@ -9,7 +9,13 @@ add_article:
   path: /add
   controller: App\Controller\BlogController::add
 
-addedit_article:
+show_article:
+  path: /articles/{id}
+  controller: App\Controller\BlogController::show
+  requirements: 
+    id: '\d+'
+
+edit_article:
   path: /edit/{id}
   controller: App\Controller\BlogController::edit
   requirements: 

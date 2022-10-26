@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+{% block content %}
+	<div class="flex justify-between text-white font-gothic mb-4">
+		<div class="w-1/12">
+			<button class="block text-2xl mb-4">
+				<i class="fa-solid fa-heart"></i>
+			</button>
+			<button class="block text-2xl text-pink-500">
+				<i class="fa-solid fa-bookmark"></i>
+			</button>
+		</div>
+		<article class="w-9/12">
+			<div class="mb-4">
+				<img src="{{asset('uploads/' ~ article.picture)}}" alt="{{article.title}}" class="rounded-xl">
+			</div>
+			<h1 class="font-bold text-4xl mb-5">{{article.title}}</h1>
+			<div class="text-lg leading-7">
+				<p>
+					{{article.content}}
+				</p>
+				{% for i in 0..5 %}
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+				{% endfor %}
+			</div>
+		</article>
+		<aside class="w-2/12 ml-3">
+			<div class="bg-gradient-to-r from-red-500 via-metablue-400 to-orange-500 mb-6 px-1 py-1 rounded-2xl">
+				<div class="w-full bg-dark-500 relative rounded-2xl">
+					<div class="bg-gradient-to-r from-metablue-100  to-metablue-400 h-9 rounded-t-2xl"></div>
+					<div class="px-2 py-3">
+						<div class="flex space-x-20 mb-4">
+							<img src="https://i.pravatar.cc/300" alt="author-name" class="w-16 h-16 rounded-full absolute top-3 border border-metablue-400">
+							<h5 class="font-semibold ">Alpha Diallo</h5>
+						</div>
+						<p>
+							Développeur web|React, Laravel. Je suis passionné de technologie, d'écriture, d'éducation et de partage. J'écris et je partage des tutoriels ou des articles sur
+							<a href="https://www.kaherecode.com/" class="underline">kaherecode</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</aside>
+	</div>
+{% endblock %}

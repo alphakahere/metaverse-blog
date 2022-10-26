@@ -13,10 +13,10 @@
 	<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3  gap-5">
 		{% for article in articles %}
 
-			<div class="bg-gradient-to-r from-red-500 via-metablue-400 to-orange-500 mb-6 px-1 py-1 rounded-2xl">
+			<article class="bg-gradient-to-r from-red-500 via-metablue-400 to-orange-500 mb-6 px-1 py-1 rounded-2xl">
 				<div class="bg-dark-200 rounded-2xl">
 					<div class="card-img-wrapper  overflow-hidden rounded-t-2xl  relative">
-						<a href="/">
+						<a href="/articles/{{articles.id}}">
 							<img src="{{asset('uploads/' ~ article.picture)}}" alt="card-title" class="inset-0 h-full w-full object-cover  hover:scale-110 transition ease-in-out duration-300" loading="lazy">
 
 						</a>
@@ -35,12 +35,12 @@
 							<p>
 								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, magni ratione aperiam voluptate
 								pariatur fuga, alias a,labore commodi impedit sit voluptatum cumque quasi reprehenderit.
-								<a href="" class="font-gothic text-white font-bold">Lire plus...</a>
+								<a href="/articles/{{article.id}}" class="font-gothic text-white font-bold">Lire plus...</a>
 							</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			</article>
 		{% endfor %}
 	</div>
 {% endblock %}
