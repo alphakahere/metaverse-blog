@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription |
+	{{parent()}}
+{% endblock %}
+{% block content %}
+	<div class="bg-slate-800 p-3 rounded text-white">
+		<h1 class="text-3xl text-center font-bold leading-9 mb-5">S'inscrire</h1>
+
+		{{ form_start(registrationForm) }}
+		<div class="mb-4">
+			{{form_label(registrationForm.name,"Prénoms et nom", {'label_attr': {'class': 'form-label'}})}}
+			{{form_widget(registrationForm.name, {'attr': {'placeholder': 'Prénoms et nom', 'class':'form-widget'}})}}
+			<span class="text-red-500">{{ form_errors(registrationForm.name) }}</span>
+		</div>
+		<div class="mb-4">
+			{{form_label(registrationForm.username,"Pseudonyme", {'label_attr': {'class': 'form-label'}})}}
+			{{form_widget(registrationForm.username, {'attr': {'placeholder': 'pseudo', 'class':'form-widget'}})}}
+			<span class="text-red-500">{{ form_errors(registrationForm.username) }}</span>
+		</div>
+		<div class="mb-4">
+			{{form_label(registrationForm.email,"Adresse email", {'label_attr': {'class': 'form-label'}})}}
+			{{form_widget(registrationForm.email, {'attr': {'placeholder': 'metaemail@gmail.com', 'class':'form-widget'}})}}
+			<span class="text-red-500">{{ form_errors(registrationForm.email) }}</span>
+		</div>
+		<div class="mb-4">
+			{{form_label(registrationForm.plainPassword,"Mot de passe", {'label_attr': {'class': 'form-label'}})}}
+			{{form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe', 'class':'form-widget'}})}}
+			<span class="text-red-500">{{ form_errors(registrationForm.plainPassword) }}</span>
+		</div>
+		<div class="mb-4 flex justify-end">
+			<button class="btn" type="submit">S'inscrire</button>
+		</div>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}
+
