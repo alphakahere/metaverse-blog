@@ -5,7 +5,11 @@
 			<span class="self-center text-xl font-semibold whitespace-nowrap text-white">Metalic</span>
 		</a>
 		<div class="flex items-center md:order-2">
-			<a href="/se-connecter" class="btn">Se Connecter</a>
+			{% if app.user %}
+				<a href="/logout" class="btn">Se Deconnecter</a>
+			{% else %}
+				<a href="/login" class="btn">Se Connecter</a>
+			{% endif %}
 		</div>
 	</div>
 </nav>
