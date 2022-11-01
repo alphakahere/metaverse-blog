@@ -5,9 +5,13 @@
 	{{parent()}}
 {% endblock %}
 {% block content %}
-	<div class="admin-table text-white">
+	<div class="admin-table text-white pt-10">
+        <div class="flex justify-end">
+            <a href="/add" class="btn rounded">Ajouter</a>
+        </div>
+        <h1 class="font-gothic text-2xl font-semibold text-center mb-4">Liste des articles{{}}</h1>
 		<table class="table-auto w-full border-spacing-2 border border-white border-collapse">
-			<thead class="text-left bg-dark">
+			<thead class="text-left bg-metablue-400">
 				<tr>
 					<th>#</th>
 					<th>Titre</th>
@@ -35,9 +39,9 @@
 								<a href="{{ path('edit_article', {'id': article.id}) }}" class="table-btn bg-gradient-to-r from-metablue-100  to-metablue-400 hover:bg-blue-800">
 									<i class="fa-solid fa-pen"></i>
 								</a>
-								<button class="table-btn bg-red-500">
+								<a class="table-btn bg-red-500" href="{{ path('remove_article', {'id': article.id}) }}">
 									<i class="fa-solid fa-trash"></i>
-								</button>
+								</a>
 							</div>
 						</td>
 					</tr>

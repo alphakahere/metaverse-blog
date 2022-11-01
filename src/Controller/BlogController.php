@@ -19,7 +19,8 @@ class BlogController extends AbstractController
             'articles' => $articles
         ]);
     }
-    public function show(Article $article){
+    public function show(Article $article)
+    {
         return $this->render('blog/show.html.twig', [
             'article' => $article
         ]);
@@ -30,12 +31,12 @@ class BlogController extends AbstractController
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $article->setLastUpdateDate(new \DateTime());
-            if($article->getIsPublished()){
+            if ($article->getIsPublished()) {
                 $article->setPublicationDate(new \DateTime());
             }
-            if($article->getPicture()){
+            if ($article->getPicture()) {
                 $file = $form->get('picture')->getData();
                 $filename = uniqid(). '.' .$file->guessExtension();
 
@@ -54,52 +55,58 @@ class BlogController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
-
-            return new Response('Article ajouté avec succès.');
-        } 
+            $this->addFlash(
+                'success',
+                'Article ajouté avec succès.'
+            );
+            return $this->redirectToRoute('admin_articles');
+        }
         return $this->render('blog/add.html.twig', [
             'article' => $article,
             'form' => $form->createView()
         ]);
-
     }
 
      // edit Article
      public function edit(Article $article, Request $request)
      {
-        $oldPicture = $article->getPicture();
-        $form = $this->createForm(ArticleType::class, $article);
+         $oldPicture = $article->getPicture();
+         $form = $this->createForm(ArticleType::class, $article);
 
          $form->handleRequest($request);
-         if($form->isSubmitted() && $form->isValid()){
-            $article->setLastUpdateDate(new \DateTime());
+         if ($form->isSubmitted() && $form->isValid()) {
+             $article->setLastUpdateDate(new \DateTime());
 
-            if ($article->getIsPublished()) {
-                $article->setPublicationDate(new \DateTime());
-            }
+             if ($article->getIsPublished()) {
+                 $article->setPublicationDate(new \DateTime());
+             }
 
-            if($article->getPicture() !== null && $article->getPicture() !== $oldPicture){
-                $file = $form->get('picture')->getData();
-                $filename = uniqid(). '.' .$file->guessExtension();
+             if ($article->getPicture() !== null && $article->getPicture() !== $oldPicture) {
+                 $file = $form->get('picture')->getData();
+                 $filename = uniqid(). '.' .$file->guessExtension();
 
-                try {
-                    $file->move(
-                        $this->getParameter('images_directory'), // Le dossier dans lequel le fichier va être charger
-                        $filename
-                    );
-                } catch (FileException $e) {
-                    return new Response($e->getMessage());
-                }
+                 try {
+                     $file->move(
+                         $this->getParameter('images_directory'), // Le dossier dans lequel le fichier va être charger
+                         $filename
+                     );
+                 } catch (FileException $e) {
+                     return new Response($e->getMessage());
+                 }
 
-                $article->setPicture($filename);
-            }else {
-                $article->setPicture($oldPicture);
-            }
+                 $article->setPicture($filename);
+             } else {
+                 $article->setPicture($oldPicture);
+             }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
-            return new Response('Article modifié avec succès.');
+             $em = $this->getDoctrine()->getManager();
+             $em->persist($article);
+             $em->flush();
+             $this->addFlash(
+                 'success',
+                 'Article modifié avec succès.'
+             );
+             return $this->redirectToRoute('admin_articles');
          }
 
          return $this->render('blog/edit.html.twig', [
@@ -109,9 +116,16 @@ class BlogController extends AbstractController
      }
 
     //remove Article
-    public function remove()
+    public function remove(Article $article)
     {
-        return new Response("Article supprime avec succes");
+        if (is_null($article)) {
+            throw $this->createNotFoundException('Aucun article trouvé');
+        }
+        $this->addFlash(
+            'success',
+            'Article supprimé avec succès.'
+        );
+        return $this->redirectToRoute('admin_articles');
     }
 
     //get all articles
