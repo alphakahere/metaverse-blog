@@ -13,7 +13,7 @@ class BlogController extends AbstractController
 {
     public function index(ArticleRepository $articleRepository)
     {
-        $articles = $articleRepository->findBy(['isPublished' => true]);
+        $articles = $articleRepository->findBy(['isPublished' => true], ['lastUpdateDate' => 'DESC']);
         dump($articles);
         return $this->render('blog/index.html.twig', [
             'articles' => $articles

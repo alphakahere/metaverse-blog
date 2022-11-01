@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Gestion des utilisateurs |
+	{{parent()}}
+{% endblock %}
+{% block content %}
+	<div class="admin-table text-white pt-10 min-h-[50vh]">
+		<h1 class="font-gothic text-2xl font-semibold text-center mb-4">Liste des utilisateurs</h1>
+		<table class="table-auto w-full border-spacing-2 border border-white border-collapse">
+			<thead class="text-left bg-metablue-400">
+				<tr>
+					<th>#</th>
+					<th>Prénoms et nom</th>
+					<th>Email</th>
+					<th>Pseudo</th>
+					<th>Roles</th>
+					<th>Bio</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set i = 1 %}
+				{% for user in users %}
+					<tr>
+						<td>{{i}}</td>
+						<td>{{user.name}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.username}}</td>
+                        <td>
+							<span class="text-white w-14 rounded h-6 flex justify-center items-center {{user.email ? " bg-metablue-400": " bg-red-500"}}">admin</span>
+						</td>
+						<td>{{user.bio}}</td>
+						<td>
+							<div class="flex justify-center gap-3">
+								{# <a href="{{ path('edit_article', {'id': user.id}) }}" class="table-btn bg-gradient-to-r from-metablue-100  to-metablue-400 hover:bg-blue-800">
+									<i class="fa-solid fa-pen"></i>
+								</a> #}
+								<a class="table-btn bg-red-500" href="{{ path('user_remove', {'id': user.id}) }}">
+									<i class="fa-solid fa-trash"></i>
+								</a>
+							</div>
+						</td>
+					</tr>
+					{% set i = i+1 %}
+				{% endfor %}
+			</tbody>
+		</table>
+		​
+	</div>
+{% endblock %}
+

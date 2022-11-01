@@ -30,3 +30,13 @@ remove_article:
 admin_articles:
   path: /admin/articles
   controller: App\Controller\BlogController::lists
+
+admin_users:
+  path: /admin/users
+  controller: App\Controller\UserController::index
+
+user_remove:
+  path: /remove/{id}
+  controller: App\Controller\UserController::remove
+  requirements: 
+    id: '\d+'
