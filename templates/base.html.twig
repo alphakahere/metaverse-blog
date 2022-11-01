@@ -28,9 +28,11 @@
 			{% include "layouts/footer.html.twig" %}
 			{% block javascripts %}
 				{#{{ encore_entry_script_tags('app') }}#}
+				{# {{ encore_entry_script_tags('app') }} #}
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 			{% endblock %}
 		</body>
+		<script src="{{asset('/js/app.js')}}"></script>
 		<script>
 		$(document).ready(function () {
 		$(".alert").delay(5000).slideUp(300);

@@ -6,11 +6,17 @@
 		</a>
 		<div class="flex items-center md:order-2">
 			{% if app.user %}
-				<a href="/logout" class="btn">Se Deconnecter</a>
+				<div class="dropdown">
+					{# <button onclick="myFunction()" class="dropbtn">M</button> #}
+					{# <div id="myDropdown" class="dropdown-content">
+						<a href="#home">Profil</a>
+						<a href="#about">Dashboard</a> #}
+						<a href="/logout" class="btn">Se Deconnecter</a>
+					{# </div> #}
+				</div>
 			{% else %}
 				<a href="/login" class="btn">Se Connecter</a>
 			{% endif %}
 		</div>
 	</div>
 </nav>
-

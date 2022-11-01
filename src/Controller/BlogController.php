@@ -8,6 +8,7 @@ use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class BlogController extends AbstractController
 {
@@ -26,6 +27,9 @@ class BlogController extends AbstractController
         ]);
     }
     // Add Article
+     /**
+     * @IsGranted   ("ROLE_ADMIN")
+     */
     public function add(Request $request)
     {
         $article = new Article();
@@ -68,6 +72,9 @@ class BlogController extends AbstractController
     }
 
      // edit Article
+     /**
+     * @IsGranted   ("ROLE_ADMIN")
+     */
      public function edit(Article $article, Request $request)
      {
          $oldPicture = $article->getPicture();
@@ -115,6 +122,9 @@ class BlogController extends AbstractController
          ]);
      }
 
+       /**
+     * @IsGranted   ("ROLE_ADMIN")
+     */
     //remove Article
     public function remove(Article $article)
     {
@@ -132,6 +142,10 @@ class BlogController extends AbstractController
         return $this->redirectToRoute('admin_articles');
     }
 
+
+    /**
+     * @IsGranted   ("ROLE_ADMIN")
+     */
     //get all articles
     public function lists(ArticleRepository $articleRepository)
     {
