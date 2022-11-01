@@ -13,7 +13,7 @@ class BlogController extends AbstractController
 {
     public function index(ArticleRepository $articleRepository)
     {
-        $articles = $articleRepository->findAll();
+        $articles = $articleRepository->findBy(['isPublished' => true]);
         dump($articles);
         return $this->render('blog/index.html.twig', [
             'articles' => $articles
@@ -121,6 +121,10 @@ class BlogController extends AbstractController
         if (is_null($article)) {
             throw $this->createNotFoundException('Aucun article trouvé');
         }
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+
         $this->addFlash(
             'success',
             'Article supprimé avec succès.'
@@ -132,7 +136,7 @@ class BlogController extends AbstractController
     public function lists(ArticleRepository $articleRepository)
     {
         $articles = $articleRepository->findAll();
-        dump($articles);
+
         return $this->render('admin/articles/index.html.twig', [
             'articles' => $articles
         ]);
