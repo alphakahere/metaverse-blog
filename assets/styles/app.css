@@ -19,3 +19,6 @@
 .form-widget-file {
 	@apply block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer p-2.5;
 }
+.table-btn {
+	@apply rounded-full flex justify-center items-center w-8 h-8;
+}

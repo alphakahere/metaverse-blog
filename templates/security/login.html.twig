@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="bg-slate-800 p-3 rounded text-white my-20 py-6">
+	<div class="bg-slate-800 p-3 rounded text-white my-20 py-6 auth-form-container mx-auto">
 		<h1 class="text-3xl text-center font-bold leading-9 mb-5">Se Connecter</h1>
 
 		<form method="post">
@@ -48,5 +48,9 @@
 			</div>
 
 		</form>
+		<div class="flex justify-between">
+			<p class="text-sm">Vous n'avez pas de compte?</p>
+			<a href="/register" class="text-sm underline font-semibold">S'inscrire</a>
+		</div>
 	</div>
 {% endblock %}

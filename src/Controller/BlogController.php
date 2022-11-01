@@ -113,4 +113,14 @@ class BlogController extends AbstractController
     {
         return new Response("Article supprime avec succes");
     }
+
+    //get all articles
+    public function lists(ArticleRepository $articleRepository)
+    {
+        $articles = $articleRepository->findAll();
+        dump($articles);
+        return $this->render('admin/articles/index.html.twig', [
+            'articles' => $articles
+        ]);
+    }
 }

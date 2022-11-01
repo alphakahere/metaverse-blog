@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap");
 
-
 *::-webkit-scrollbar {
 	width: 8px;
 }
 
-*{
+* {
 	scrollbar-width: 8px;
 	scrollbar-color: white #4d75f4;
 }
-
 
 *::-webkit-scrollbar-track {
 	background: white;
@@ -30,17 +28,23 @@
 .btn-search {
 	right: 0;
 }
-.card-img-wrapper  {
+.card-img-wrapper {
 	height: 300px;
 	max-height: 300px;
 }
 .card-title {
-	font-family: 'League Gothic', Times, serif;
+	font-family: "League Gothic", Times, serif;
 }
 footer.footer {
 	background-color: #12121e;
 	/* #575661 */
 }
-label {
-	/* color: white; */
+.auth-form-container {
+	max-width: 700px;
+}
+.admin-table th,
+.admin-table td {
+	text-align: left;
+	padding: 20px 10px;
+	border: 1px solid #FFFFFF;
 }

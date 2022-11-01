@@ -26,3 +26,7 @@ remove_article:
   controller: App\Controller\BlogController::remove
   requirements: 
     id: '\d+'
+
+admin_articles:
+  path: /admin/articles
+  controller: App\Controller\BlogController::lists
