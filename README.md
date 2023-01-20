@@ -1,16 +1,16 @@
 # metaverse-blog
 Un petit blog fait avec Symfony et Twig 
 
-##Fonctionnalités
+## Fonctionnalités
 
-###Admin
+### Admin
 -Connexion
 -Liste articles
 -Ajout Article
 -Modifier un article
 -Supprimer un article
 
-###User
+### User
 -Inscription
 -Connexion
 -Liste articles
